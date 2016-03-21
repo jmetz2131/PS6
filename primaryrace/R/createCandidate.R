@@ -8,8 +8,7 @@
 #' \item \code{name} The name of the presidential candidate
 #' \item \code{delegatesWon} The delegates the presidential candidate has already won.
 #' \item \code{party} The party of the presidential candidate
-#' \item \code{delegatesNeeded} The amount of delegates the presidential candidate still needs in order to
-#'                              win the nomination
+#' \item \code{delegatesNeeded} The amount of delegates the presidential candidate still needs in order to win the nomination
 #' }
 #'
 #' @author Jacob Metz: \email{jacob.metz@@wustl.edu}
@@ -32,7 +31,7 @@ setClass(Class="Candidate",
          
          #The above slots dictate what an object must have in order to be considered
          #part of the Candidate class. It will include the candidate's name, 
-         #the amount of delegates he or she was already won, the party of the
+         #the amount of delegates he or she has already won, the party of the
          #candidate, and the delegates the candidate still needs to win in order
          #to clinch the respective party nomination.
          
@@ -46,7 +45,42 @@ setClass(Class="Candidate",
          #I will only be looking at candidates from the Democratic and 
          #Republican Party, which require 2,383 delegates and 1,237 delegates, 
          #respectively, in order to clinch the nomination.
+)
+
+#' @export
+setMethod("initialize", "Candidate", 
+          function(.Object, name, delegatesWon, party){
+            if(party=='Democrat'){
+              .Object@delegatesNeeded <- 2383 - delegatesWon
+            }
+            
+            if(party=="Republican"){
+              .Object@delegatesNeeded <- 1237 - delegatesWon
+            }
+            value=callNextMethod()
+            return(value)
+          }
 ) 
+
+setMethod(f="print", "Candidate",
+          definition=function(x){
+            
+          })
+
+
+setMethod(f="show", "Candidate")
+          definition=function(object){
+            
+          }
+
+#' @export
+setMethod("createCandidate", "Candidate",
+          function(name, delegatesWon, party){
+           
+            }
+          }
+)
+
 
 
 
