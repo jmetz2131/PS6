@@ -62,24 +62,34 @@ setMethod("initialize", "Candidate",
           }
 ) 
 
+#' @export
 setMethod(f="print", "Candidate",
           definition=function(x){
-            
-          })
-
-
-setMethod(f="show", "Candidate")
-          definition=function(object){
-            
+            if(party=="Republican"){
+              return(print("I believe this person can make America great again!"))
+            }
           }
+        )
+
+#' @export
+setMethod(f="show", "Candidate",
+          definition=function(object){
+            if(party=="Democrat"){
+              return(show("I believe this person will build off of President Obama's success!"))
+            }
+          }
+        )
 
 #' @export
 setMethod("createCandidate", "Candidate",
           function(name, delegatesWon, party){
-           
-            }
+            return(new("Candidate", 
+                       name=name,
+                       delegatesWon=delegatesWon,
+                       party=party
+                       )
+                   )
           }
-)
 
 
 
