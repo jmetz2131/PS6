@@ -62,6 +62,11 @@ setMethod("initialize", "Candidate",
           }
 ) 
 
+##This method includes how the delegatesNeeded aspect of the Candidate class is calculated
+##and serves to initialize the method itself. I used if statements to specifically clarify
+##the delegate totals for a candidate from the Democratic and Republican parties.
+
+
 #' @export
 setMethod(f="print", "Candidate",
           definition=function(x){
@@ -70,6 +75,9 @@ setMethod(f="print", "Candidate",
             }
           }
         )
+##This method includes a print method that is specific to the Republican party.
+##The if statement I wrote will return "I believe this person can make America great again"
+##if the party of the candidate in question is Republican.
 
 #' @export
 setMethod(f="show", "Candidate",
@@ -79,6 +87,11 @@ setMethod(f="show", "Candidate",
             }
           }
         )
+
+##This method includes a show method that is specific to the Democratic party.
+##The if statement I wrote will return "I believe this person will build off of President Obama's
+##success!"if the party of the candidate in question is Democratic.
+
 
 #' @export
 setMethod("createCandidate", "Candidate",
@@ -90,7 +103,9 @@ setMethod("createCandidate", "Candidate",
                        )
                    )
           }
-
+##The createCandidate function is very similar to the class Candidate but this serves as a means
+##for any user to more simply input the same information as above in this R file: name, delegatesWon,
+##and party.
 
 
 
