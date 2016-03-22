@@ -14,9 +14,14 @@ setwd("/Users/jacobmetz/Desktop/New Class/PS6")
 #containing a DESCRIPTION file, a NAMESPACE file, and a R folder that will contain
 #functions I write for the package
 
-create("primaryrace")
 ## This can be run many times as the code is updates
 current.code <- as.package("primaryrace")
 load_all(current.code)
 document(current.code)
 
+##Testing the Candidate class
+##This test works and shows that myTest is of class Candidate
+myTest <- new("Candidate", name="Jed Bartlet", delegatesWon=756, party="Democrat")
+class(myTest)
+
+##Testing whether createCandidate works

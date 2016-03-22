@@ -50,7 +50,13 @@ setClass(Class="Candidate",
 #' @export
 setMethod("initialize", "Candidate", 
           function(.Object, name, delegatesWon, party){
-            if(party=='Democrat'){
+            .Object@name <- name
+            .Object@delegatesWon <- delegatesWon
+            .Object@party <- party
+            ##I used the three lines of code above to ensure that each of these would be recognized
+            ##when I tested this class in my Development file
+            
+            if(party=="Democrat"){
               .Object@delegatesNeeded <- 2383 - delegatesWon
             }
             
@@ -94,8 +100,8 @@ setMethod(f="show", "Candidate",
 
 
 #' @export
-setMethod("createCandidate", "Candidate",
-          function(name, delegatesWon, party){
+setMethod(f="createCandidate",
+          definition=function(name, delegatesWon, party){
             return(new("Candidate", 
                        name=name,
                        delegatesWon=delegatesWon,
